@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Make Up Giedrė</title>
+<meta name="description" content="Profesionalus makiažas ir grožio paslaugos – meistrė Giedrė." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💄</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+
+<!-- Flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/lt.css">
+
+<style>
+/* Būtini stiliai, kad poraštė visada būtų apačioje */
+html, body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex-grow: 1;
+}
+
+.price-card.selected { border: 2px solid #ff69b4; background-color: #ff69b420; }
+.price-card { cursor: pointer; transition: transform 0.2s; padding:1rem; border:1px solid #ccc; margin-bottom:0.5rem; }
+.price-card:hover { transform: scale(1.02); }
+#bookingSection { display: none; margin-top: 2rem; }
+.form-row { margin-bottom: 1rem; }
+.grid2 { display:flex; gap:1rem; }
+.grid2 .form-row { flex:1; }
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background-color: #15151a;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+    color: #eaeaf1;
+    max-width: 90%;
+    max-height: 90vh;
+}
+.modal-close {
+    float: right;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.price-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+</style>
+</head>
+<body>
+
+
+<main class="container">
+    <header class="site-header">
+    <div class="container nav">
+    <a class="logo" href="index.html">Giedrė • Make Up</a>
+    <nav>
+      <a href="index.html">Pradžia</a>
+      <a href="galerija.html">Galerija</a>
+      <a href="rezervacija.html">Kainos</a>
+      <a href="atsiliepimai.html">Atsiliepimai</a>
+      <a href="apiemane.html" class="active">Apie mane</a>
+    </nav>
+  </div>
+</header>
+</main>
+
+
+<main class="container">
+<section class="page-head">
+  <h1>Kainos</h1>
+  <p>Skaidrus kainoraštis. Kainos gali kisti pagal individualius pageidavimus.</p>
+</section>
+
+<div class="price-grid">
+  <div class="price-card" data-type="Dieninis makiažas">
+    <h3>Dieninis makiažas</h3>
+    <div class="price">45 €</div>
+    <p>Natūralus įvaizdis kasdienai (~60 min).</p>
+  </div>
+  <div class="price-card" data-type="Vakarinis makiažas">
+    <h3>Vakarinis makiažas</h3>
+    <div class="price">60 €</div>
+    <p>Ryškesnis, ilgiau išliekantis (~75 min).</p>
+  </div>
+  <div class="price-card" data-type="Nuotakos makiažas">
+    <h3>Nuotakos makiažas</h3>
+    <div class="price">120 €</div>
+    <p>Bandymas + šventės diena (2 vizitai).</p>
+  </div>
+  <div class="price-card" data-type="Makiažo pamoka 1:1">
+    <h3>Makiažo pamoka 1:1</h3>
+    <div class="price">80 €</div>
+    <p>Individuali 90 min pamoka su Jūsų kosmetine.</p>
+  </div>
+  <div class="price-card" data-type="Grupinė pamoka">
+    <h3>Grupinė pamoka (2–4 asm.)</h3>
+    <div class="price">140 €</div>
+    <p>2 val. edukacija, pritaikyta grupei.</p>
+  </div>
+</div>
+
+<section id="bookingSection">
+  <h2>Rezervuoti laiką</h2>
+  <form id="bookingForm" class="form">
+    <div class="form-row">
+      <label for="name">Vardas</label>
+      <input id="name" name="name" type="text" required placeholder="Jūsų vardas" />
+    </div>
+    <div class="form-row">
+      <label for="email">El. paštas</label>
+      <input id="email" name="email" type="email" required placeholder="jusu@pastas.lt" />
+    </div>
+    <div class="form-row">
+      <label for="phone">Telefonas</label>
+      <input id="phone" name="phone" type="tel" placeholder="+370..." />
+    </div>
+    <div class="form-row">
+      <label for="service">Paslauga</label>
+      <select id="service" name="service" required>
+        <option value="">Pasirinkite</option>
+        <option value="Dieninis makiažas">Dieninis makiažas</option>
+        <option value="Vakarinis makiažas">Vakarinis makiažas</option>
+        <option value="Nuotakos makiažas">Nuotakos makiažas</option>
+        <option value="Makiažo pamoka 1:1">Makiažo pamoka 1:1</option>
+        <option value="Grupinė pamoka">Grupinė pamoka</option>
+      </select>
+    </div>
+
+    <div class="grid2">
+      <div class="form-row">
+        <label for="date">Data</label>
+        <input id="date" name="date" type="text" placeholder="Pasirinkite datą" required />
+      </div>
+      <div class="form-row">
+        <label for="time">Laikas</label>
+        <select id="time" name="time" required>
+          <option value="">Pasirinkite laiką</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label for="notes">Žinutė / pageidavimai</label>
+      <textarea id="notes" name="notes" rows="4" placeholder="Trumpai aprašykite viziją ar pastebėjimus"></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn" type="submit">Pateikti</button>
+      <button class="btn-secondary" type="reset">Išvalyti</button>
+    </div>
+  </form>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container foot">
+    <div>
+      <strong>Giedrė • Make Up</strong><br/>
+      <small>© 2025. Visos teisės saugomos.</small>
+    </div>
+    <div class="foot-links">
+      <a href="M. Mažvydo g. 9-6, Vilnius">M. Mažvydo g. 9-6, Vilnius</a>
+      <a href="mailto:rezervacija@giedremakeup.lt">rezervacija@giedremakeup.lt</a>
+      <a href="tel:+37060000000">+370 600 00000</a>
+      <a href="https://www.instagram.com" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 5px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width:20px; height:20px;">
+        Instagram
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal HTML -->
+<div id="successModal" class="modal">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <h2>Rezervacija sėkmingai pateikta!</h2>
+        <p>Greitu metu su jumis susisieksime.</p>
+    </div>
+</div>
+
+<!-- Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/lt.js"></script>
+
+<script>
+const cards = document.querySelectorAll('.price-card');
+const select = document.getElementById('service');
+const bookingSection = document.getElementById('bookingSection');
+const timeSelect = document.getElementById('time');
+const dateInput = document.getElementById('date');
+const bookingForm = document.getElementById('bookingForm');
+const modal = document.getElementById('successModal');
+const modalClose = document.querySelector('.modal-close');
+
+// Flatpickr inicializacija
+flatpickr(dateInput, {
+    locale: "lt",
+    minDate: "today",
+    dateFormat: "Y-m-d"
+});
+
+// Sugeneruoti valandų pasirinkimus 09:00–20:00
+for(let h=9; h<=20; h++){
+  let hour = h<10?'0'+h:h;
+  let option = document.createElement('option');
+  option.value = `${hour}:00`;
+  option.textContent = `${hour}:00`;
+  timeSelect.appendChild(option);
+}
+
+// Plytelių paspaudimas
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+    cards.forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    select.value = card.dataset.type;
+    bookingSection.style.display='block';
+  });
+});
+
+// Select pasikeitimas
+select.addEventListener('change', () => {
+  const type = select.value;
+  cards.forEach(c => c.classList.remove('selected'));
+  cards.forEach(c => { if(c.dataset.type === type) c.classList.add('selected'); });
+  if(type!=='') bookingSection.style.display='block';
+});
+
+// Formos pateikimas ir modalinio lango atidarymas
+bookingForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    modal.style.display = 'flex';
+    bookingForm.reset();
+    bookingSection.style.display = 'none';
+    cards.forEach(c => c.classList.remove('selected'));
+});
+
+// Uždaryti modalinį langą
+modalClose.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+</script>
+
+</body>
+</html>

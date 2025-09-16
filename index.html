@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Make Up Giedrė</title>
+  <meta name="description" content="Profesionalus makiažas ir grožio paslaugos – meistrė Giedrė." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💄</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Tooltip stilius */
+    .feature-tooltip {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .feature-tooltip .tooltip-text {
+      visibility: hidden;
+      width: 250px;
+      background-color: #333;
+      color: #fff;
+      text-align: left;
+      border-radius: 8px;
+      padding: 10px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%; /* pozicija virš elemento */
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .feature-tooltip:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .feature-tooltip .tooltip-text::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #333 transparent transparent transparent;
+    }
+  </style>
+<header class="container">
+<header class="site-header">
+  <div class="container nav">
+    <a class="logo" href="index.html">Giedrė • Make Up</a>
+    <nav>
+      <a href="index.html">Pradžia</a>
+      <a href="galerija.html">Galerija</a>
+      <a href="rezervacija.html">Kainos</a>
+      <a href="atsiliepimai.html">Atsiliepimai</a>
+      <a href="apiemane.html" class="active">Apie mane</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>Profesionalus makiažas <span class="accent">Giedrės</span> studijoje</h1>
+        <p>Kiekvienas veidas – unikalus. Sukursiu makiažą, kuris pabrėš Jūsų natūralų grožį fotosesijai, šventei ar kasdienai.</p>
+        <div class="cta">
+          <a class="btn" href="rezervacija.html">Rezervuoti laiką</a>
+          <a class="link" href="galerija.html">Peržiūrėti darbus</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-img">
+          <img src="assets/gallery/photo2_small.jpg" alt="Hero Make Up Giedrė">
+        </div>
+        <div class="hero-badge">Giedrė • Make Up</div>
+      </div>
+    </div>
+  </section>
+  <div class="container hero-divider"></div>
+  <section class="features container">
+    <article class="feature feature-tooltip">
+      <h3>Nuotakos ir švenčių makiažas</h3>
+      <p>Ilgaamžis, fotografijoje atrodantis nepriekaištingai.</p>
+      <div class="tooltip-text">
+        Ši paslauga skirta: Ypatingoms progoms – vestuvėms, krikštynoms ar kitoms šventėms. Makiažas yra ilgalaikis, atsparus prakaitui ir ašaroms, paruoštas fotosesijai. Procesas apima veido paruošimą, makiažo pagrindą, akių ir lūpų makiažą pagal Jūsų pageidavimus, taip pat galimą pritaikymą individualiam įvaizdžiui. Rezultatas – natūralus, bet ryškus, ilgai išliekantis grožis.
+      </div>
+    </article>
+    <article class="feature feature-tooltip">
+      <h3>Dieninis ir vakarinis</h3>
+      <p>Nuo lengvo gaivumo iki ryškaus įvaizdžio.</p>
+      <div class="tooltip-text">
+        Ši paslauga skirta: Dieninis makiažas – moterims, kurios nori atrodyti tvarkingai ir gaiviai darbo dienai, susitikimams ar kasdienėms veikloms, išlaikant natūralų įvaizdį. Vakarinis makiažas – toms, kurios ruošiasi vakarėliui, šventei, pasimatymui ar kitai ypatingai progai, kur reikia ryškesnio ir labiau išskiriančio įvaizdžio.
+      </div>
+    </article>
+    <article class="feature feature-tooltip">
+      <h3>1:1 pamokos</h3>
+      <p>Makiažo pamokos, pritaikytos Jūsų veido bruožams.</p>
+      <div class="tooltip-text">
+        Ši paslauga skirta: Makiažo pamokos – individualiai pritaikytos pagal Jūsų veido bruožus, odos tipą bei asmeninius poreikius. Išmoksite, kaip paryškinti savo grožį, pasirinkti tinkamas priemones ir technikas kasdieniam ar proginiam įvaizdžiui.
+      </div>
+    </article>
+  </section>
+
+  <section class="preview container">
+    <div class="preview-head">
+      <h2>Galerijos peržiūra</h2>
+      <a class="link" href="galerija.html">Žiūrėti visą galeriją →</a>
+    </div>
+    <div class="grid gallery-grid">
+      <a class="card" href="galerija.html"><img src="assets/gallery/photo4_small.jpg" alt="Make up pavyzdys 1"></a>
+      <a class="card" href="galerija.html"><img src="assets/gallery/photo2_small.jpg" alt="Make up pavyzdys 2"></a>
+      <a class="card" href="galerija.html"><img src="assets/gallery/photo3_small.jpg" alt="Make up pavyzdys 3"></a>
+      <a class="card" href="galerija.html"><img src="assets/gallery/photo4_small.jpg" alt="Make up pavyzdys 1"></a>
+      <a class="card" href="galerija.html"><img src="assets/gallery/photo2_small.jpg" alt="Make up pavyzdys 2"></a>
+      <a class="card" href="galerija.html"><img src="assets/gallery/photo3_small.jpg" alt="Make up pavyzdys 3"></a>
+    </div>
+  </section>
+
+  <section class="cta-wide">
+    <div class="container">
+      <h2>Pasiruošusi(-ęs) naujam įvaizdžiui?</h2>
+      <p>Pasirinkite laiką ir paslaugą – likusiu pasirūpinsiu aš.</p>
+      <a class="btn btn-light" href="rezervacija.html">Rezervuoti</a>
+    </div>
+  </section>
+</main>
+
+  <footer class="site-footer">
+    <div class="container foot">
+      <div>
+        <strong>Giedrė • Make Up</strong><br/>
+        <small>© 2025. Visos teisės saugomos.</small>
+      </div>
+      <div class="foot-links">
+        <a href="M. Mažvydo g. 9-6, Vilnius">M. Mažvydo g. 9-6, Vilnius</a>
+        <a href="mailto:rezervacija@giedremakeup.lt">rezervacija@giedremakeup.lt</a>
+        <a href="tel:+37060000000">+370 600 00000</a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 5px;">
+           <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width:20px; height:20px;">
+           Instagram
+        </a>
+      </div>
+
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
